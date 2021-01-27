@@ -4,15 +4,22 @@
     <a href="{% url 'blog:create' %}">create post</a>
     <br>
     {% for post in posts %}
-        <a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a>
+        <div class="box shadow p-3 mb-5 bg-white rounded">
+            <a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a>
+        <br>
+        {{ post.body }}
+        <br>
+        <p>
+            publish {{ post.publish }} by {{ post.author }}
+        </p>
         <br>
         <a href="{% url 'blog:update' post.pk %}">edit</a>
         <a href="{% url 'blog:delete' post.pk %}">delete</a>
             
         
-        <p>
-            publish {{ post.publish }} by {{ post.author }}
-        </p>
-        {{ post.body }}
+        
+        
+        </div>
+        
     {% endfor %}
 {% endblock %}
