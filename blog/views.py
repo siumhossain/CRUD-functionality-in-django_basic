@@ -5,8 +5,10 @@ from .forms import PostForm
 # Create your views here.
 def post_list(request):
     posts = Post.objects.all()
+    
     context = {
-        'posts':posts
+        'posts':posts,
+        
     }
     return render(request,'blog/list.html',context)
 def post_detail(request,pk):
@@ -48,3 +50,4 @@ def post_delete(request,pk):
     post = Post.objects.get(id=pk)
     post.delete()
     return redirect ("/blog")
+
