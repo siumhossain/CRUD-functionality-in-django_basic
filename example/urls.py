@@ -18,5 +18,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/',include('blog.urls', namespace='blog'))
+    path('blog/',include('blog.urls', namespace='blog')),
+     path('vcard/',include('vcard.urls', namespace='vcard')),
+     path('qr_code/', include('qr_code.urls', namespace="qr_code")),
 ]
